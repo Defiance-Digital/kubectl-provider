@@ -5,8 +5,8 @@ const project = new AwsCdkConstructLibrary({
   authorAddress: 'matthew.bonig@gmail.com',
   cdkVersion: '1.100.0',
   defaultReleaseBranch: 'main',
-  name: 'kubectl-provider',
-  repositoryUrl: 'https://github.com/defianceai/kubectl-provider.git',
+  name: '@Defiance-Digital/kubectl-provider',
+  repositoryUrl: 'https://github.com/Defiance-Digital/kubectl-provider.git',
   description: 'A Lambda function setup to make generic kubectl commands against an EKS repository',
   cdkDependencies: [
     '@aws-cdk/aws-ec2',
@@ -21,6 +21,7 @@ const project = new AwsCdkConstructLibrary({
   cdkTestDependencies: ['@aws-cdk/assertions'],
   devDeps: ['eslint'],
   gitignore: ['cdk.out/', 'cdk.context.json'],
+  npmRegistryUrl: 'https://npm.pkg.github.com',
 });
 
 project.setScript('test:integ', 'npx cdk synth --app "ts-node -P tsconfig.dev.json test/test.integ.ts"');

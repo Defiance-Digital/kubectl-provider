@@ -1,9 +1,9 @@
 {
-  "name": "kubectl-provider",
+  "name": "@Defiance-Digital/kubectl-provider",
   "description": "A Lambda function setup to make generic kubectl commands against an EKS repository",
   "repository": {
     "type": "git",
-    "url": "https://github.com/defianceai/kubectl-provider.git"
+    "url": "https://github.com/Defiance-Digital/kubectl-provider.git"
   },
   "scripts": {
     "build": "npx projen build",
@@ -80,6 +80,9 @@
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "version": "0.0.0",
   "jest": {
     "testMatch": [
