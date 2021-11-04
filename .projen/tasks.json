@@ -18,6 +18,14 @@
         },
         {
           "spawn": "docgen"
+        },
+        {
+          "exec": "mkdir lib/handlers/",
+          "name": "mkdir python handler"
+        },
+        {
+          "exec": "cp src/handlers/*.py lib/handlers/",
+          "name": "copy python handler"
         }
       ]
     },

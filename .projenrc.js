@@ -23,6 +23,9 @@ const project = new AwsCdkConstructLibrary({
   gitignore: ['cdk.out/', 'cdk.context.json'],
   npmRegistryUrl: 'https://npm.pkg.github.com',
 });
+project.buildTask.exec('mkdir lib/handlers/', { name: 'mkdir python handler' });
+project.buildTask.exec('cp src/handlers/*.py lib/handlers/', { name: 'copy python handler' });
 
 project.setScript('test:integ', 'npx cdk synth --app "ts-node -P tsconfig.dev.json test/test.integ.ts"');
+
 project.synth();
