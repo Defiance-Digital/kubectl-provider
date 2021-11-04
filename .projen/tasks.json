@@ -18,14 +18,6 @@
         },
         {
           "spawn": "docgen"
-        },
-        {
-          "exec": "mkdir lib/handlers/",
-          "name": "mkdir python handler"
-        },
-        {
-          "exec": "cp src/handlers/*.py lib/handlers/",
-          "name": "copy python handler"
         }
       ]
     },
@@ -92,6 +84,14 @@
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mkdir lib/handlers/",
+          "name": "mkdir python handler"
+        },
+        {
+          "exec": "cp src/handlers/*.py lib/handlers/",
+          "name": "copy python handler"
         }
       ]
     },
