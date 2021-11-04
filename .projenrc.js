@@ -1,18 +1,27 @@
 const { AwsCdkConstructLibrary } = require('projen');
+const { Task } = require('projen/lib/tasks');
 const project = new AwsCdkConstructLibrary({
   author: 'Matthew Bonig',
   authorAddress: 'matthew.bonig@gmail.com',
-  cdkVersion: '1.95.2',
+  cdkVersion: '1.100.0',
   defaultReleaseBranch: 'main',
   name: 'kubectl-provider',
-  repositoryUrl: 'https://github.com/matthew.bonig/kubectl-provider.git',
-
-  // cdkDependencies: undefined,      /* Which AWS CDK modules (those that start with "@aws-cdk/") does this library require when consumed? */
-  // cdkTestDependencies: undefined,  /* AWS CDK modules required for testing. */
-  // deps: [],                        /* Runtime dependencies of this module. */
-  // description: undefined,          /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],                     /* Build dependencies for this module. */
-  // packageName: undefined,          /* The "name" in package.json. */
-  // release: undefined,              /* Add release management to this project. */
+  repositoryUrl: 'https://github.com/defianceai/kubectl-provider.git',
+  description: 'A Lambda function setup to make generic kubectl commands against an EKS repository',
+  cdkDependencies: [
+    '@aws-cdk/aws-ec2',
+    '@aws-cdk/aws-iam',
+    '@aws-cdk/aws-lambda',
+    '@aws-cdk/aws-lambda-python',
+    '@aws-cdk/core',
+    '@aws-cdk/lambda-layer-awscli',
+    '@aws-cdk/lambda-layer-kubectl',
+  ],
+  cdkDependenciesAsDeps: false,
+  cdkTestDependencies: ['@aws-cdk/assertions'],
+  devDeps: ['eslint'],
+  gitignore: ['cdk.out/', 'cdk.context.json'],
 });
+
+project.setScript('test:integ', 'npx cdk synth --app "ts-node -P tsconfig.dev.json test/test.integ.ts"');
 project.synth();
