@@ -37,10 +37,10 @@ new KubectlFunction(scope: Construct, id: string, props: KubectlFunctionProps)
 ##### `handler`<sup>Required</sup> <a name="@Defiance-Digital/kubectl-provider.KubectlFunction.property.handler"></a>
 
 ```typescript
-public readonly handler: PythonFunction;
+public readonly handler: Function;
 ```
 
-- *Type:* [`@aws-cdk/aws-lambda-python.PythonFunction`](#@aws-cdk/aws-lambda-python.PythonFunction)
+- *Type:* [`@aws-cdk/aws-lambda.Function`](#@aws-cdk/aws-lambda.Function)
 
 ---
 

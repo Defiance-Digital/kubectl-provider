@@ -1,8 +1,7 @@
 import * as path from 'path';
 import { IVpc, SubnetType } from '@aws-cdk/aws-ec2';
 import { Effect, PolicyStatement } from '@aws-cdk/aws-iam';
-import { Runtime } from '@aws-cdk/aws-lambda';
-import { PythonFunction } from '@aws-cdk/aws-lambda-python';
+import { Runtime, Function, Code } from '@aws-cdk/aws-lambda';
 import { CfnOutput, Construct, Duration } from '@aws-cdk/core';
 import { AwsCliLayer } from '@aws-cdk/lambda-layer-awscli';
 import { KubectlLayer } from '@aws-cdk/lambda-layer-kubectl';
@@ -28,15 +27,15 @@ export interface KubectlFunctionProps {
 }
 
 export class KubectlFunction extends Construct {
-  public handler: PythonFunction;
+  public handler: Function;
 
   constructor(scope: Construct, id: string, props: KubectlFunctionProps) {
 
     super(scope, id);
-    this.handler = new PythonFunction(this, 'KubectlProvider', {
-      entry: path.join(__dirname, 'handlers'),
-      index: 'index.py',
-      runtime: Runtime.PYTHON_2_7,
+    this.handler = new Function(this, 'KubectlProvider', {
+      code: Code.fromAsset(path.join(__dirname, 'handlers')),
+      handler: 'index.handler',
+      runtime: Runtime.PYTHON_3_7,
       environment: {
         CLUSTER_NAME: props.clusterName,
         ROLE_ARN: props.roleArn,

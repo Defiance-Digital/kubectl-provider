@@ -12,7 +12,6 @@ const project = new AwsCdkConstructLibrary({
     '@aws-cdk/aws-ec2',
     '@aws-cdk/aws-iam',
     '@aws-cdk/aws-lambda',
-    '@aws-cdk/aws-lambda-python',
     '@aws-cdk/core',
     '@aws-cdk/lambda-layer-awscli',
     '@aws-cdk/lambda-layer-kubectl',
