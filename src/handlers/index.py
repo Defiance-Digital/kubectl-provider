@@ -31,7 +31,7 @@ def handler(event, context):
     if os.path.isfile(kubeconfig):
         os.chmod(kubeconfig, 0o600)
 
-    kubectl(event["commands"])
+    return kubectl(event["commands"])
 
 
 def kubectl(commands):
