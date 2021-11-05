@@ -1,5 +1,60 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`LambdaFunction Additional Params Lambda Snapshot 1`] = `
+Object {
+  "TestFunctionKubectlProvider08B8F324": Object {
+    "DependsOn": Array [
+      "TestFunctionKubectlProviderServiceRoleDefaultPolicyF73A53D5",
+      "TestFunctionKubectlProviderServiceRole182EFC99",
+    ],
+    "Properties": Object {
+      "Code": Object {
+        "S3Bucket": "my-bucket",
+        "S3Key": "my-key",
+      },
+      "Environment": Object {
+        "Variables": Object {
+          "CLUSTER_NAME": "somecluster",
+          "ROLE_ARN": "somerolearn",
+        },
+      },
+      "Handler": "index.handler",
+      "Layers": Array [
+        Object {
+          "Ref": "TestFunctionAwsCliLayer2ECCD930",
+        },
+        Object {
+          "Ref": "TestFunctionKubectlLayer88A4BB23",
+        },
+      ],
+      "MemorySize": 512,
+      "Role": Object {
+        "Fn::GetAtt": Array [
+          "TestFunctionKubectlProviderServiceRole182EFC99",
+          "Arn",
+        ],
+      },
+      "Runtime": "python3.7",
+      "Timeout": 30,
+      "VpcConfig": Object {
+        "SecurityGroupIds": Array [
+          Object {
+            "Fn::GetAtt": Array [
+              "TestFunctionKubectlProviderSecurityGroup03954269",
+              "GroupId",
+            ],
+          },
+        ],
+        "SubnetIds": Array [
+          "s-123",
+        ],
+      },
+    },
+    "Type": "AWS::Lambda::Function",
+  },
+}
+`;
+
 exports[`LambdaFunction Basic Lambda Snapshot 1`] = `
 Object {
   "TestFunctionKubectlProvider08B8F324": Object {

@@ -1,7 +1,7 @@
 import * as path from 'path';
 import { IVpc, SubnetType } from '@aws-cdk/aws-ec2';
 import { Effect, PolicyStatement } from '@aws-cdk/aws-iam';
-import { Runtime, Function, Code } from '@aws-cdk/aws-lambda';
+import { Code, Function, FunctionOptions, Runtime } from '@aws-cdk/aws-lambda';
 import { CfnOutput, Construct, Duration } from '@aws-cdk/core';
 import { AwsCliLayer } from '@aws-cdk/lambda-layer-awscli';
 import { KubectlLayer } from '@aws-cdk/lambda-layer-kubectl';
@@ -24,6 +24,11 @@ export interface KubectlFunctionProps {
    * The VPC where the Kubernetes cluster is
    */
   readonly vpc: IVpc;
+
+  /**
+   * Additional parameters to pass to the Lambda function.
+   */
+  readonly additionalParams?: FunctionOptions;
 }
 
 export class KubectlFunction extends Construct {
@@ -45,6 +50,7 @@ export class KubectlFunction extends Construct {
       vpcSubnets: {
         subnetType: SubnetType.PRIVATE_WITH_NAT,
       },
+      ...props.additionalParams,
     });
     this.handler.addToRolePolicy(new PolicyStatement({
       actions: ['eks:DescribeCluster'],

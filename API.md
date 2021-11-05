@@ -95,5 +95,17 @@ The VPC where the Kubernetes cluster is.
 
 ---
 
+##### `additionalParams`<sup>Optional</sup> <a name="@Defiance-Digital/kubectl-provider.KubectlFunctionProps.property.additionalParams"></a>
+
+```typescript
+public readonly additionalParams: FunctionOptions;
+```
+
+- *Type:* [`@aws-cdk/aws-lambda.FunctionOptions`](#@aws-cdk/aws-lambda.FunctionOptions)
+
+Additional parameters to pass to the Lambda function.
+
+---
+
 
 
