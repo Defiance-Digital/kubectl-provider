@@ -11,8 +11,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   devDeps: ['eslint'],
   gitignore: ['cdk.out/', 'cdk.context.json', '.idea/'],
   keywords: ['cdk', 'eks', 'kubectl'],
-  npmRegistryUrl: 'https://npm.pkg.github.com',
   integrationTestAutoDiscover: false,
+  releaseToNpm: true,
 });
 project.compileTask.exec('rm -rf lib/handlers/; mkdir lib/handlers/', { name: 'mkdir python handler' });
 project.compileTask.exec('cp src/handlers/*.py lib/handlers/', { name: 'copy python handler' });
