@@ -14,7 +14,7 @@ new KubectlFunction(scope: Construct, id: string, props: KubectlFunctionProps)
 
 ##### `scope`<sup>Required</sup> <a name="@Defiance-Digital/kubectl-provider.KubectlFunction.parameter.scope"></a>
 
-- *Type:* [`@aws-cdk/core.Construct`](#@aws-cdk/core.Construct)
+- *Type:* [`constructs.Construct`](#constructs.Construct)
 
 ---
 
@@ -40,7 +40,7 @@ new KubectlFunction(scope: Construct, id: string, props: KubectlFunctionProps)
 public readonly handler: Function;
 ```
 
-- *Type:* [`@aws-cdk/aws-lambda.Function`](#@aws-cdk/aws-lambda.Function)
+- *Type:* [`aws-cdk-lib.aws_lambda.Function`](#aws-cdk-lib.aws_lambda.Function)
 
 ---
 
@@ -89,7 +89,7 @@ The Role ARN that is to be assumed during the EKS authentication process to acce
 public readonly vpc: IVpc;
 ```
 
-- *Type:* [`@aws-cdk/aws-ec2.IVpc`](#@aws-cdk/aws-ec2.IVpc)
+- *Type:* [`aws-cdk-lib.aws_ec2.IVpc`](#aws-cdk-lib.aws_ec2.IVpc)
 
 The VPC where the Kubernetes cluster is.
 
@@ -101,7 +101,7 @@ The VPC where the Kubernetes cluster is.
 public readonly additionalParams: FunctionOptions;
 ```
 
-- *Type:* [`@aws-cdk/aws-lambda.FunctionOptions`](#@aws-cdk/aws-lambda.FunctionOptions)
+- *Type:* [`aws-cdk-lib.aws_lambda.FunctionOptions`](#aws-cdk-lib.aws_lambda.FunctionOptions)
 
 Additional parameters to pass to the Lambda function.
 

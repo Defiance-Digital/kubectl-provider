@@ -15,3 +15,13 @@ new KubectlFunction(stack, 'TestFunction', {
 });
 ```
 
+## Executing
+
+To execute the Lambda function, hand it a basic commands field:
+
+```json
+{
+  "commands": ["get", "nodes", "-o", "json"]
+}
+```
+

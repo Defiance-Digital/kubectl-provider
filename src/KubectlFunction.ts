@@ -1,10 +1,12 @@
 import * as path from 'path';
-import { IVpc, SubnetType } from '@aws-cdk/aws-ec2';
-import { Effect, PolicyStatement } from '@aws-cdk/aws-iam';
-import { Code, Function, FunctionOptions, Runtime } from '@aws-cdk/aws-lambda';
-import { CfnOutput, Construct, Duration } from '@aws-cdk/core';
-import { AwsCliLayer } from '@aws-cdk/lambda-layer-awscli';
-import { KubectlLayer } from '@aws-cdk/lambda-layer-kubectl';
+
+import { CfnOutput, Duration } from 'aws-cdk-lib';
+import { IVpc, SubnetType } from 'aws-cdk-lib/aws-ec2';
+import { Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam';
+import { Code, Function, FunctionOptions, Runtime } from 'aws-cdk-lib/aws-lambda';
+import { AwsCliLayer } from 'aws-cdk-lib/lambda-layer-awscli';
+import { KubectlLayer } from 'aws-cdk-lib/lambda-layer-kubectl';
+import { Construct } from 'constructs';
 
 /**
  * The properties for a KubectlFunction construct
@@ -60,7 +62,7 @@ export class KubectlFunction extends Construct {
 
     this.handler.addToRolePolicy(new PolicyStatement({
       actions: ['sts:AssumeRole'],
-      resources: ['arn:aws:iam::227350585542:role/Dev-Cluster-ClusterCreationRole360249B6-1GR9RPOPQW2E1'],
+      resources: [props.roleArn],
       effect: Effect.ALLOW,
     }));
 

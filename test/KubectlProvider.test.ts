@@ -1,7 +1,7 @@
-import { Template } from '@aws-cdk/assertions';
-import { Vpc } from '@aws-cdk/aws-ec2';
-import { Code, CodeConfig } from '@aws-cdk/aws-lambda';
-import { App, DockerImage, Duration, Stack } from '@aws-cdk/core';
+import { App, DockerImage, Duration, Stack } from 'aws-cdk-lib';
+import { Template } from 'aws-cdk-lib/assertions';
+import { Vpc } from 'aws-cdk-lib/aws-ec2';
+import { Code, CodeConfig } from 'aws-cdk-lib/aws-lambda';
 import { KubectlFunction } from '../src';
 
 let fromAssetMock: any;
