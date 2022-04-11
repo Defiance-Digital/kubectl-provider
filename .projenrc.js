@@ -1,5 +1,4 @@
-const { awscdk } = require('projen');
-const { Task } = require('projen/lib/tasks');
+const { awscdk, javascript } = require('projen');
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Matthew Bonig',
   authorAddress: 'matthew.bonig@defiance.ai',
@@ -13,6 +12,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   keywords: ['cdk', 'eks', 'kubectl'],
   integrationTestAutoDiscover: false,
   releaseToNpm: true,
+  npmAccess: javascript.NpmAccess.PUBLIC,
 });
 project.compileTask.exec('rm -rf lib/handlers/; mkdir lib/handlers/', { name: 'mkdir python handler' });
 project.compileTask.exec('cp src/handlers/*.py lib/handlers/', { name: 'copy python handler' });
