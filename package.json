@@ -1,5 +1,5 @@
 {
-  "name": "@Defiance-Digital/kubectl-provider",
+  "name": "@defiance-digital/kubectl-provider",
   "description": "A Lambda function kubectl commands against an EKS repository",
   "repository": {
     "type": "git",
