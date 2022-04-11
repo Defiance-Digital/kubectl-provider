@@ -53,12 +53,3 @@ junit.xml
 .jsii
 tsconfig.json
 !/API.md
-test/.tmp
-test/test.integ.snapshot/asset.*
-test/test.integ.snapshot/**/asset.*
-test/test.integ.snapshot/cdk.out
-test/test.integ.snapshot/**/cdk.out
-test/test.integ.snapshot/manifest.json
-test/test.integ.snapshot/**/manifest.json
-test/test.integ.snapshot/tree.json
-test/test.integ.snapshot/**/tree.json
