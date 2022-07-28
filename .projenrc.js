@@ -4,6 +4,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorAddress: 'matthew.bonig@defiance.ai',
   cdkVersion: '2.4.0',
   defaultReleaseBranch: 'main',
+  depsUpgrade: false,
   name: '@defiance-digital/kubectl-provider',
   repositoryUrl: 'https://github.com/Defiance-Digital/kubectl-provider.git',
   description: 'A Lambda function kubectl commands against an EKS repository',
