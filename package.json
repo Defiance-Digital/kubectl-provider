@@ -49,6 +49,7 @@
     "jsii-diff": "^1.81.0",
     "jsii-docgen": "^8.0.14",
     "jsii-pacmak": "^1.81.0",
+    "jsii-rosetta": "^5.0.7",
     "projen": "^0.71.52",
     "standard-version": "^9",
     "ts-jest": "^27",
@@ -67,6 +68,9 @@
     "eks",
     "kubectl"
   ],
+  "engines": {
+    "node": ">= 16.20.0"
+  },
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "homepage": "https://defiance.ai",

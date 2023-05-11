@@ -9,8 +9,14 @@ const project = new awscdk.AwsCdkConstructLibrary({
   name: '@defiance-digital/kubectl-provider',
   repositoryUrl: 'https://github.com/Defiance-Digital/kubectl-provider.git',
   description: 'A Lambda function kubectl commands against an EKS repository',
-  devDeps: ['eslint'],
-  deps: ['@aws-cdk/lambda-layer-kubectl-v25'],
+  devDeps: [
+    'eslint',
+    'jsii-rosetta@^5.0.7',
+    'jsii-docgen@^8.0.14',
+  ],
+  deps: [
+    '@aws-cdk/lambda-layer-kubectl-v25',
+  ],
   peerDeps: ['@aws-cdk/lambda-layer-kubectl-v25'],
   gitignore: ['cdk.out/', 'cdk.context.json', '.idea/'],
   keywords: ['cdk', 'eks', 'kubectl'],
@@ -18,6 +24,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
   releaseToNpm: true,
   npmAccess: javascript.NpmAccess.PUBLIC,
   jsiiVersion: '^5.0.7',
+  nodeVersion: '^16.20.0',
+  minNodeVersion: '16.20.0',
+
 });
 project.compileTask.exec('rm -rf lib/handlers/; mkdir lib/handlers/', { name: 'mkdir python handler' });
 project.compileTask.exec('cp src/handlers/*.py lib/handlers/', { name: 'copy python handler' });
