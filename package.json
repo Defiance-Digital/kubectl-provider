@@ -22,7 +22,6 @@
     "pre-compile": "npx projen pre-compile",
     "release": "npx projen release",
     "test": "npx projen test",
-    "test:update": "npx projen test:update",
     "test:watch": "npx projen test:watch",
     "unbump": "npx projen unbump",
     "watch": "npx projen watch",
@@ -34,39 +33,47 @@
     "organization": false
   },
   "devDependencies": {
-    "@types/jest": "^27.0.2",
-    "@types/node": "^12",
+    "@types/jest": "^27",
+    "@types/node": "^16",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
-    "aws-cdk-lib": "2.4.0",
+    "aws-cdk-lib": "2.75.0",
     "constructs": "10.0.5",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.6",
     "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-import": "^2.25.2",
-    "jest": "^27.3.1",
-    "jest-junit": "^13",
-    "jsii": "^1.42.0",
-    "jsii-diff": "^1.42.0",
-    "jsii-docgen": "^3.8.18",
-    "jsii-pacmak": "^1.42.0",
-    "json-schema": "^0.3.0",
-    "projen": "^0.54.20",
+    "jest": "^27",
+    "jest-junit": "^15",
+    "jsii": "^5.0.7",
+    "jsii-diff": "^1.81.0",
+    "jsii-docgen": "^8.0.14",
+    "jsii-pacmak": "^1.81.0",
+    "jsii-rosetta": "^5.0.7",
+    "projen": "^0.71.52",
     "standard-version": "^9",
-    "ts-jest": "^27.0.7",
+    "ts-jest": "^27",
     "typescript": "^4.4.4"
   },
   "peerDependencies": {
-    "aws-cdk-lib": "^2.4.0",
+    "@aws-cdk/lambda-layer-kubectl-v25": "^2.0.3",
+    "aws-cdk-lib": "^2.75.0",
     "constructs": "^10.0.5"
+  },
+  "dependencies": {
+    "@aws-cdk/lambda-layer-kubectl-v25": "^2.0.3"
   },
   "keywords": [
     "cdk",
     "eks",
     "kubectl"
   ],
+  "engines": {
+    "node": ">= 16.20.0"
+  },
   "main": "lib/index.js",
   "license": "Apache-2.0",
+  "homepage": "https://defiance.ai",
   "publishConfig": {
     "access": "public"
   },
@@ -74,7 +81,7 @@
   "jest": {
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.ts?(x)",
-      "<rootDir>/(test|src)/**/?(*.)+(spec|test).ts?(x)"
+      "<rootDir>/(test|src)/**/*(*.)@(spec|test).ts?(x)"
     ],
     "clearMocks": true,
     "collectCoverage": true,

@@ -1,17 +1,25 @@
 import * as path from 'path';
 
+import { KubectlV25Layer } from '@aws-cdk/lambda-layer-kubectl-v25';
 import { CfnOutput, Duration } from 'aws-cdk-lib';
 import { IVpc, SubnetType } from 'aws-cdk-lib/aws-ec2';
 import { Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 import { Code, Function, FunctionOptions, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { AwsCliLayer } from 'aws-cdk-lib/lambda-layer-awscli';
 import { KubectlLayer } from 'aws-cdk-lib/lambda-layer-kubectl';
+
 import { Construct } from 'constructs';
 
 /**
  * The properties for a KubectlFunction construct
  */
 export interface KubectlFunctionProps {
+  /**
+   * Whether to use kubectl v1.25 or not for the lambda layer. Set this to true if your EKS cluster is 1.25+
+   *
+   * @default false
+   */
+  readonly usev125?: boolean;
   /**
    * The Role ARN that is to be assumed during the EKS authentication process to access and run commands on the cluster.
    */
@@ -67,7 +75,13 @@ export class KubectlFunction extends Construct {
     }));
 
     this.handler.addLayers(new AwsCliLayer(this, 'AwsCliLayer'));
-    this.handler.addLayers(new KubectlLayer(this, 'KubectlLayer'));
+    if (props.usev125) {
+      this.handler.addLayers(new KubectlV25Layer(this, 'KubectlLayer'));
+
+    } else {
+      this.handler.addLayers(new KubectlLayer(this, 'KubectlLayer'));
+    }
+
 
     new CfnOutput(this, 'SecurityGroupForLambda', {
       value: this.handler.connections.securityGroups[0].securityGroupId,
