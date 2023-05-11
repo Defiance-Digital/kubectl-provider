@@ -64,6 +64,27 @@ describe('LambdaFunction', () => {
     expect(resource).toMatchSnapshot();
   });
 
+  test('Uses v1.25 support', () => {
+    const app = new App();
+    const stack = new Stack(app, 'test');
+
+    const testVpc = Vpc.fromVpcAttributes(stack, 'TestVpc', {
+      privateSubnetIds: ['s-123'],
+      vpcId: 'vpc-123123',
+      availabilityZones: ['us-east-1a'],
+    });
+    new KubectlFunction(stack, 'TestFunction', {
+      roleArn: 'somerolearn',
+      clusterName: 'somecluster',
+      vpc: testVpc,
+      usev125: true,
+    });
+    const assert = Template.fromStack(stack);
+
+    const resource = assert.findResources('AWS::Lambda::Function');
+    expect(resource).toMatchSnapshot();
+  });
+
   test('Additional Params Lambda Snapshot', () => {
     const app = new App();
     const stack = new Stack(app, 'test');
