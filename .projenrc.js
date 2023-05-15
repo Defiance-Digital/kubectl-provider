@@ -17,6 +17,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   deps: [
     '@aws-cdk/lambda-layer-kubectl-v25',
   ],
+  githubOptions: { mergify: false },
   peerDeps: ['@aws-cdk/lambda-layer-kubectl-v25'],
   gitignore: ['cdk.out/', 'cdk.context.json', '.idea/'],
   keywords: ['cdk', 'eks', 'kubectl'],
@@ -25,7 +26,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   npmAccess: javascript.NpmAccess.PUBLIC,
   jsiiVersion: '^5.0.7',
   nodeVersion: '^16.20.0',
-  minNodeVersion: '16.20.0',
+  minNodeVersion: '16.19.0',
 
 });
 project.compileTask.exec('rm -rf lib/handlers/; mkdir lib/handlers/', { name: 'mkdir python handler' });
