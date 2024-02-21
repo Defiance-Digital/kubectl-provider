@@ -50,7 +50,7 @@ export class KubectlFunction extends Construct {
     this.handler = new Function(this, 'KubectlProvider', {
       code: Code.fromAsset(path.join(__dirname, 'handlers')),
       handler: 'index.handler',
-      runtime: Runtime.PYTHON_3_7,
+      runtime: Runtime.PYTHON_3_10,
       environment: {
         CLUSTER_NAME: props.clusterName,
         ROLE_ARN: props.roleArn,
@@ -58,7 +58,7 @@ export class KubectlFunction extends Construct {
       timeout: Duration.seconds(45),
       vpc: props.vpc,
       vpcSubnets: {
-        subnetType: SubnetType.PRIVATE_WITH_NAT,
+        subnetType: SubnetType.PRIVATE_WITH_EGRESS,
       },
       ...props.additionalParams,
     });
