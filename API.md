@@ -163,7 +163,7 @@ const kubectlFunctionProps: KubectlFunctionProps = { ... }
 | <code><a href="#@defiance-digital/kubectl-provider.KubectlFunctionProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | The VPC where the Kubernetes cluster is. |
 | <code><a href="#@defiance-digital/kubectl-provider.KubectlFunctionProps.property.additionalParams">additionalParams</a></code> | <code>aws-cdk-lib.aws_lambda.FunctionOptions</code> | Additional parameters to pass to the Lambda function. |
 | <code><a href="#@defiance-digital/kubectl-provider.KubectlFunctionProps.property.usev125">usev125</a></code> | <code>boolean</code> | Whether to use kubectl v1.25 or not for the lambda layer. Set this to true if your EKS cluster is 1.25+. |
-| <code><a href="#@defiance-digital/kubectl-provider.KubectlFunctionProps.property.usev128">usev128</a></code> | <code>boolean</code> | Whether to use kubectl v1.28 or not for the lambda layer. Set this to true if your EKS cluster is 1.25+. |
+| <code><a href="#@defiance-digital/kubectl-provider.KubectlFunctionProps.property.usev128">usev128</a></code> | <code>boolean</code> | Whether to use kubectl v1.28 or not for the lambda layer. Set this to true if your EKS cluster is 1.27+. |
 
 ---
 
@@ -237,7 +237,7 @@ public readonly usev128: boolean;
 - *Type:* boolean
 - *Default:* false
 
-Whether to use kubectl v1.28 or not for the lambda layer. Set this to true if your EKS cluster is 1.25+.
+Whether to use kubectl v1.28 or not for the lambda layer. Set this to true if your EKS cluster is 1.27+.
 
 ---
 
