@@ -22,7 +22,7 @@ export interface KubectlFunctionProps {
    */
   readonly usev125?: boolean;
   /**
-   * Whether to use kubectl v1.28 or not for the lambda layer. Set this to true if your EKS cluster is 1.25+
+   * Whether to use kubectl v1.28 or not for the lambda layer. Set this to true if your EKS cluster is 1.27+
    *
    * @default false
    */
