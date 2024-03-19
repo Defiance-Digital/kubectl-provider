@@ -2,7 +2,7 @@ const { awscdk, javascript } = require('projen');
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Matthew Bonig',
   authorAddress: 'matthew.bonig@defiance.ai',
-  cdkVersion: '2.75.0',
+  cdkVersion: '2.133.0',
   defaultReleaseBranch: 'main',
   depsUpgrade: false,
   homepage: 'https://defiance.ai',
@@ -16,9 +16,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
   ],
   deps: [
     '@aws-cdk/lambda-layer-kubectl-v25',
+    '@aws-cdk/lambda-layer-kubectl-v28',
   ],
   githubOptions: { mergify: false },
-  peerDeps: ['@aws-cdk/lambda-layer-kubectl-v25'],
+  peerDeps: ['@aws-cdk/lambda-layer-kubectl-v25', '@aws-cdk/lambda-layer-kubectl-v28'],
   gitignore: ['cdk.out/', 'cdk.context.json', '.idea/'],
   keywords: ['cdk', 'eks', 'kubectl'],
   integrationTestAutoDiscover: false,

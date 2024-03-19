@@ -37,7 +37,7 @@
     "@types/node": "^16",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
-    "aws-cdk-lib": "2.75.0",
+    "aws-cdk-lib": "2.133.0",
     "constructs": "10.0.5",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.6",
@@ -57,11 +57,13 @@
   },
   "peerDependencies": {
     "@aws-cdk/lambda-layer-kubectl-v25": "^2.0.3",
-    "aws-cdk-lib": "^2.75.0",
+    "@aws-cdk/lambda-layer-kubectl-v28": "^2.2.0",
+    "aws-cdk-lib": "^2.133.0",
     "constructs": "^10.0.5"
   },
   "dependencies": {
-    "@aws-cdk/lambda-layer-kubectl-v25": "^2.0.3"
+    "@aws-cdk/lambda-layer-kubectl-v25": "^2.0.3",
+    "@aws-cdk/lambda-layer-kubectl-v28": "^2.2.0"
   },
   "keywords": [
     "cdk",
