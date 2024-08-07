@@ -24,6 +24,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   keywords: ['cdk', 'eks', 'kubectl'],
   integrationTestAutoDiscover: false,
   releaseToNpm: true,
+  npmRegistryUrl: 'https://npm.pkg.github.com',
   npmAccess: javascript.NpmAccess.PUBLIC,
   jsiiVersion: '^5.0.7',
   nodeVersion: '^16.20.0',
