@@ -1,9 +1,9 @@
 {
-  "name": "@defiance-digital/kubectl-provider",
+  "name": "@momnt-technologies/kubectl-provider",
   "description": "A Lambda function kubectl commands against an EKS repository",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Defiance-Digital/kubectl-provider.git"
+    "url": "https://github.com/momnt-technologies/kubectl-provider.git"
   },
   "scripts": {
     "build": "npx projen build",
@@ -77,6 +77,7 @@
   "license": "Apache-2.0",
   "homepage": "https://defiance.ai",
   "publishConfig": {
+    "registry": "https://npm.pkg.github.com/",
     "access": "public"
   },
   "version": "0.0.0",

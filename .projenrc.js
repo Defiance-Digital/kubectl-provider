@@ -6,8 +6,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   defaultReleaseBranch: 'main',
   depsUpgrade: false,
   homepage: 'https://defiance.ai',
-  name: '@defiance-digital/kubectl-provider',
-  repositoryUrl: 'https://github.com/Defiance-Digital/kubectl-provider.git',
+  name: '@momnt-technologies/kubectl-provider',
+  repositoryUrl: 'https://github.com/momnt-technologies/kubectl-provider.git',
   description: 'A Lambda function kubectl commands against an EKS repository',
   devDeps: [
     'eslint',
@@ -24,6 +24,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   keywords: ['cdk', 'eks', 'kubectl'],
   integrationTestAutoDiscover: false,
   releaseToNpm: true,
+  npmRegistryUrl: 'https://npm.pkg.github.com',
   npmAccess: javascript.NpmAccess.PUBLIC,
   jsiiVersion: '^5.0.7',
   nodeVersion: '^16.20.0',
