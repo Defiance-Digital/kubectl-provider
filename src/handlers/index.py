@@ -43,6 +43,17 @@ def kubectl(commands):
 
             logger.info('Running command: %s' % cmd)
             output = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
+            decoded_str = output.decode('utf-8')
+
+            # Split the string into individual JSON objects
+            json_objects = decoded_str.strip().split('\n')
+
+            # Parse each JSON object and store in a list
+            parsed_json_list = [json.loads(obj) for obj in json_objects]
+
+            # Print the list of parsed JSON objects
+            for log in parsed_json_list:
+                logger.info(json.dumps(log), indent=4)
         except subprocess.CalledProcessError as exc:
             output = exc.output
             if b'i/o timeout' in output and retry > 0:
